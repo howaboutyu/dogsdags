@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  classifier:
+    build: ./app
+    volumes:
+      - ./assets:/app/assets
+    stdin_open: true
+    tty: true
