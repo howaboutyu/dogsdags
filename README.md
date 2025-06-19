@@ -1,7 +1,3 @@
-# Airflow Summit 2025 is coming October 07-09. **Register now for early bird ticket!**
-
-[Community](https://airflow.apache.org/community/) | [Meetups](https://airflow.apache.org/community#meetups) | [Documentation](https://airflow.apache.org/docs/) | [Use Cases](https://airflow.apache.org/use-cases/) | [Announcements](https://airflow.apache.org/announcements/) | [Blog](https://airflow.apache.org/blog/) | [Ecosystem](https://airflow.apache.org/ecosystem/) | Version: 3.0.2 | [Search docs](https://airflow.apache.org/docs/)
-
 # ML Airflow DAGs
 
 This repository contains example Apache Airflow DAGs for machine learning pipelines using the TaskFlow API.
