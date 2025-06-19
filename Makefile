@@ -1,11 +1,24 @@
-build:
-	docker-compose build
+.PHONY: init up down restart logs shell status
+
+init:
+	@echo "Initializing Airflow..."
+	docker compose up airflow-init
 
 up:
-	docker-compose up -d
+	@echo "Starting Airflow..."
+	docker compose up -d airflow-webserver airflow-scheduler
 
 down:
-	docker-compose down
+	@echo "Stopping Airflow..."
+	docker compose down
+
+restart: down up
+
+logs:
+	docker compose logs -f airflow-webserver
 
 shell:
-	docker-compose exec classifier sh
+	docker compose exec airflow-webserver bash
+
+status:
+	docker compose ps
