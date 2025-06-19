@@ -3,11 +3,8 @@ from PIL import Image
 import os
 
 def classify_image(image_path):
-    # Load the image classification pipeline
     classifier = pipeline("image-classification")
-    # Open image
     image = Image.open(image_path)
-    # Run classification
     results = classifier(image)
     return results
 
