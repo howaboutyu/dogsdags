@@ -5,7 +5,8 @@ ENV_FILE    := .env
 
 docker-compose.yaml:
 	@echo "Downloading docker-compose.yaml from Apache Airflow docs..."
-	curl -LfO $(COMPOSE_URL)
+	# To get a fresh docker compose file, uncomment below
+	# curl -LfO $(COMPOSE_URL)
 
 .env:
 	@echo "Generating $(ENV_FILE) with local user and group IDs..."
@@ -18,7 +19,7 @@ init: docker-compose.yaml $(ENV_FILE)
 
 up: docker-compose.yaml $(ENV_FILE)
 	@echo "Starting Airflow..."
-	docker compose up -d airflow-webserver airflow-scheduler
+	docker compose up -d # airflow-webserver airflow-scheduler
 
 down: docker-compose.yaml $(ENV_FILE)
 	@echo "Stopping Airflow..."
