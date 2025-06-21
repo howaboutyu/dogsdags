@@ -1,4 +1,4 @@
-.PHONY: init up down restart logs shell status
+.PHONY: init up down restart logs shell status clean-examples
 COMPOSE_URL := https://airflow.apache.org/docs/apache-airflow/3.0.2/docker-compose.yaml
 ENV_FILE    := .env
 
@@ -35,3 +35,12 @@ shell: docker-compose.yaml $(ENV_FILE)
 
 status: docker-compose.yaml $(ENV_FILE)
 	docker compose ps
+
+clean-examples: docker-compose.yaml $(ENV_FILE)
+	@echo "Deleting example and tutorial DAGs from Airflow metadata..."
+	@for dag in `docker compose run --rm airflow-cli dags list | awk '/^(example_|tutorial_)/ {print $$1}'`; do \
+		echo "Deleting $$dag"; \
+		docker compose run --rm airflow-cli dags delete $$dag --yes; \
+	 done
+	@echo "Removing example logs from host..."
+	@rm -rf logs/dag_processor/*/example_dags

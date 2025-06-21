@@ -1,4 +1,11 @@
-# ML Airflow DAGs
+
+
+<p align="center">
+  <img src="assets/logov2.png" alt="DOGDAGS Logo" width="200"/>
+</p>
+
+
+# DOGDAGS: ML Airflow DAGs
 
 This repository contains example Apache Airflow DAGs for machine learning pipelines using the TaskFlow API.
 
